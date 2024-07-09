@@ -1,3 +1,7 @@
+//npm install react react-dom styled-components react-datepicker react-hook-form @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
+
+
+
 import React, { useState, useRef, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import DatePicker from 'react-datepicker';
