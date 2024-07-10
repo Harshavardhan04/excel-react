@@ -1,0 +1,72 @@
+npm install @mui/x-date-pickers @mui/material @emotion/react @emotion/styled
+
+
+import React, { useState, useEffect, useRef, useContext } from "react";
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import HighchartsBoost from "highcharts/modules/boost";
+import HighchartsExporting from "highcharts/modules/exporting";
+import HighchartsAnnotations from "highcharts/modules/annotations";
+import HighchartsMore from "highcharts/highcharts-more";
+import CurrencySelector from './CurrencySelector';
+import { ThemeContext } from "../ThemeContext";
+import Topbar from "./Topbar";
+import DataTableComponent from "./DataTableComponent";
+import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { TextField } from '@mui/material';
+import "../Styles/Graph.css";
+
+
+<div className="selectors-container">
+  <div className="currency-selector">
+    <CurrencySelector
+      options={[
+        { value: "AUD", label: "AUD" },
+        { value: "EUR", label: "EUR" },
+        { value: "GBP", label: "GBP" },
+        { value: "JPY", label: "JPY" },
+        { value: "USD", label: "USD" },
+        { value: "BRL", label: "BRL" },
+        { value: "CAD", label: "CAD" },
+        { value: "CHF", label: "CHF" },
+        { value: "CLP", label: "CLP" },
+        { value: "CNY", label: "CNY" },
+        { value: "CZK", label: "CZK" },
+        { value: "DKK", label: "DKK" },
+        { value: "HKD", label: "HKD" },
+        { value: "HUF", label: "HUF" },
+        { value: "INR", label: "INR" },
+        { value: "KRW", label: "KRW" },
+        { value: "MXN", label: "MXN" },
+        { value: "NOK", label: "NOK" },
+        { value: "NZD", label: "NZD" },
+        { value: "PLN", label: "PLN" },
+        { value: "SEK", label: "SEK" },
+        { value: "SGD", label: "SGD" },
+        { value: "THB", label: "THB" },
+        { value: "TWD", label: "TWD" },
+        { value: "ZAR", label: "ZAR" },
+      ]}
+      selectedCurrencies={selectedCurrencies}
+      setSelectedCurrencies={setSelectedCurrencies}
+    />
+  </div>
+  <div className="date-picker">
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <label>Select Date Range:</label>
+      <DatePicker
+        label="Start Date"
+        value={startDate}
+        onChange={(date) => setStartDate(date)}
+        renderInput={(params) => <TextField {...params} className="date-input" />}
+      />
+      <DatePicker
+        label="End Date"
+        value={endDate}
+        onChange={(date) => setEndDate(date)}
+        renderInput={(params) => <TextField {...params} className="date-input" />}
+      />
+    </LocalizationProvider>
+  </div>
+</div>
